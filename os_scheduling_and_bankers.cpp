@@ -5,16 +5,12 @@
 #include <iomanip>
 
 using namespace std;
-
-// ---------------- PROCESS STRUCTURE ----------------
 struct Process {
     string id;
     int at, bt;
-    int rt; // remaining time
+    int rt; 
     int ct, tat, wt;
 };
-
-// ---------------- PRINT FUNCTION ----------------
 void printTable(vector<Process> p) {
     float total_wt = 0, total_tat = 0;
 
@@ -41,7 +37,6 @@ void printTable(vector<Process> p) {
          << total_tat / p.size() << endl;
 }
 
-// ---------------- FCFS ----------------
 void fcfs(vector<Process> p) {
 
     cout << "\n========== FCFS ==========\n";
@@ -66,8 +61,6 @@ void fcfs(vector<Process> p) {
 
     printTable(p);
 }
-
-// ---------------- SJF NON PREEMPTIVE ----------------
 void sjf(vector<Process> p) {
 
     cout << "\n===== SJF (Non-Preemptive) =====\n";
@@ -114,7 +107,6 @@ void sjf(vector<Process> p) {
     printTable(p);
 }
 
-// ---------------- SRTF ----------------
 void srtf(vector<Process> p) {
 
     cout << "\n========== SRTF ==========\n";
@@ -167,7 +159,6 @@ void srtf(vector<Process> p) {
     printTable(p);
 }
 
-// ---------------- ROUND ROBIN ----------------
 void roundRobin(vector<Process> p, int quantum) {
 
     cout << "\n===== ROUND ROBIN =====\n";
@@ -247,7 +238,7 @@ void roundRobin(vector<Process> p, int quantum) {
     printTable(p);
 }
 
-// ---------------- BANKER'S ALGORITHM ----------------
+
 bool bankers() {
 
     cout << "\n===== BANKER'S ALGORITHM =====\n";
@@ -283,7 +274,6 @@ bool bankers() {
     for (int i = 0; i < R; i++)
         cin >> avail[i];
 
-    // Need Matrix
     for (int i = 0; i < P; i++) {
         for (int j = 0; j < R; j++) {
             need[i][j] = maxm[i][j] - alloc[i][j];
@@ -359,7 +349,6 @@ bool bankers() {
     return true;
 }
 
-// ---------------- MAIN FUNCTION ----------------
 int main() {
 
     int n;
